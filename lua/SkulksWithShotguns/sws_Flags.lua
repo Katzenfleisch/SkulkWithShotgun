@@ -187,6 +187,17 @@ local function CheckEntityPickupFlag(self, entity)
     
 end
 
+if Client then
+    -- hide babblers which are clinged on the local player to not obscure their view
+    function Flag:OnGetIsVisible(visibleTable, viewerTeamNumber)
+        
+        local parent = self:GetParent()
+        if parent and (parent == Client.GetLocalPlayer() and not parent:GetIsThirdPerson() ) then
+            visibleTable.Visible = false
+        end
+        
+    end
+end
 
 local function CheckAllEntsInRangePickupFlag(self)
 
