@@ -74,6 +74,11 @@ function Shotgun:GetRange()
     return 100
 end
 
+-- Hack for the vanilla code thinking the "shotgun" is a marine weapon with health once dropped
+function Shotgun:GetIsAlive()
+    return false
+end
+
 function Shotgun:GetAnimationGraphName()
     return kAnimationGraph
 end
