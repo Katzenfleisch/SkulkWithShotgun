@@ -45,7 +45,7 @@ if Server then
 		end
 		
 		if(not success) then
-			Print("Gamerules:RespawnPlayer(player) - Couldn't find spawn point for player.")
+			Print("Gamerules:RespawnPlayer(player) - Couldn t find spawn point for player.")
 		end
 		
 		return success
@@ -60,7 +60,7 @@ if Server then
     // Force joining aliens.
     function NS2Gamerules:GetCanJoinTeamNumber(teamNumber)
     
-        // TEAM MODE - we don't care about the teams in team mode!
+        // TEAM MODE - we don t care about the teams in team mode!
         if kTeamModeEnabled then
             return true
         end
@@ -182,7 +182,7 @@ if Server then
                 oldTeam:RemovePlayerFromRespawnQueue(player)
             end
             
-            -- Spawn immediately if going to ready room, game hasn't started, cheats on, or game started recently
+            -- Spawn immediately if going to ready room, game hasn t started, cheats on, or game started recently
             if newTeamNumber == kTeamReadyRoom or self:GetCanSpawnImmediately() or force then
             
                 success, newPlayer = team:ReplaceRespawnPlayer(player, nil, nil)
@@ -282,7 +282,7 @@ if Server then
         local player = client:GetControllingPlayer()
         
         // warn players they are not getting a typical match. 
-        // Wouldn't want to confuse the greens.
+        // Wouldn t want to confuse the greens.
         player:ShotgunMessage("You are playing custom mod: Skulks With Shotguns!")
         player:ShotgunMessage("This is not Vanilla NS2! Have fun!")
     end
@@ -527,7 +527,7 @@ if Server then
 	function NS2Gamerules:CheckForNoCommander(onTeam, commanderType) end
 	function NS2Gamerules:UpdateAutoTeamBalance(dt) end
 	function NS2Gamerules:KillEnemiesNearCommandStructureInPreGame(timePassed) end
-    // disable these methods in OnUpdate, we don't want them to trigger.
+    // disable these methods in OnUpdate, we don t want them to trigger.
     local function DisabledUpdateAutoTeamBalance(self, dt) end
     local function DisabledCheckForNoCommander(self, onTeam, commanderType) end
     local function DisabledKillEnemiesNearCommandStructureInPreGame(self, timePassed) end
