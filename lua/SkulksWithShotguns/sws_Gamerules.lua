@@ -127,13 +127,21 @@ if Server then
     end    
     function NS2Gamerules:CheckGameStart()
     
-        if self:GetGameState() <= kGameState.PreGame then
+        local playerCount = self.team1:GetNumPlayers() + self.team2:GetNumPlayers()
+
+        if self:GetGameState() == kGameState.PreGame then
+
+            if playerCount == 0 then
+                self:SetGameState(kGameState.NotStarted)
+                Shared:ShotgunMessage("Round aborted!")
+            end
+
+        elseif self:GetGameState() < kGameState.PreGame then
         
             // Start game when we have /any/ players in the game.
-            local playerCount = self.team1:GetNumPlayers() + self.team2:GetNumPlayers()
 
             if  (playerCount > 0) then
-				Log(self:GetGameState())
+			-- Log(self:GetGameState())
                 if self:GetGameState() >= kGameState.WarmUp then
                     self:SetGameState(kGameState.PreGame)
                     self.score = 0
@@ -144,11 +152,6 @@ if Server then
                         // team mode requires longer spawn time.
                         kAlienSpawnTime = kTeamAlienSpawnTime
                     end
-                end
-            else
-                if (self:GetGameState() == kGameState.PreGame) then
-                    self:SetGameState(kGameState.NotStarted)
-                    Shared:ShotgunMessage("Round aborted!")
                 end
             end
             
