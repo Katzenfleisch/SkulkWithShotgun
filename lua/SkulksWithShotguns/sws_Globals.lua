@@ -25,6 +25,9 @@ kCaptureWinPoints = 5
 // Speed factor of shotgun skulks while carrying gorge (flag).
 kSkulkSpeedFactorWhileCarryGorge = 0.95
 
+// RoF in second of the shotgun
+kSkulkShotgunRoF = 0.5
+
 // Seconds the gorge remains on the floor when dropped. 
 // important for if it gets lodged somewhere unreachable by accident.
 kFlagFloorTimeout = 45

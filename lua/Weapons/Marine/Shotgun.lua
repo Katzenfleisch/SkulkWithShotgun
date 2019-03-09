@@ -49,7 +49,7 @@ local kMuzzleAttachPoint = "Tongue01"
 
 local networkVars =
 {
-    blocked = "boolean",
+    blocked = "time",
     activity = "enum Shotgun.kActivity"
 }
 
@@ -250,10 +250,11 @@ function Shotgun:PerformPrimaryAttack(player)
     self.primaryAttacking = true
     
     local success = false
+    local time = Shared.GetTime()
 
-    if not self.blocked then
+    if self.blocked < time then
     
-        self.blocked = true
+        self.blocked = time + kSkulkShotgunRoF
         
         success = true
         
@@ -269,7 +270,7 @@ function Shotgun:OnHolster(player)
 
     Ability.OnHolster(self, player)
     
-    self.blocked = false
+    self.blocked = 0
     
 end
 
@@ -278,7 +279,6 @@ function Shotgun:OnTag(tagName)
     PROFILE("Shotgun:OnTag")
 
     if tagName == "attack_end" then
-        self.blocked = false
         self.primaryAttacking = false
     end
 
