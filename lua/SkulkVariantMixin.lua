@@ -38,7 +38,7 @@ function SkulkVariantMixin:GetVariantModel()
     if self:GetTeamNumber() == 1 then
         return SkulkVariantMixin.kModelNames[kSkulkVariant.shadow]
     else
-        return SkulkVariantMixin.kModelNames[kSkulkVariant.normal]
+        return SkulkVariantMixin.kModelNames[kSkulkVariant.toxin]
     end
 end
 

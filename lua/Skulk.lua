@@ -39,8 +39,8 @@ Skulk.kMapName = "skulk"
 
 Skulk.kModelName = PrecacheAsset("models/alien/skulk/skulk.model")
 -- SWS START
-local kViewModelName = PrecacheAsset("models/alien/skulk/skulk_toxin.model")
-local kBlueViewModelName = PrecacheAsset("models/alien/skulk/skulk_shadow.model")
+local kViewModelName = PrecacheAsset("models/alien/skulk/skulk_toxin_view.model")
+local kBlueViewModelName = PrecacheAsset("models/alien/skulk/skulk_shadow_view.model")
 -- SWS END
 local kSkulkAnimationGraph = PrecacheAsset("models/alien/skulk/skulk.animation_graph")
 
