@@ -6,7 +6,7 @@ local kTextFontName = "fonts/AgencyFB_large.fnt"
 local kFontColor = Color(1, 1, 1, 1)
 
 local kEggSize = GUIScale( Vector(64, 64, 0) )
-local kCarrySize = GUIScale( Vector(200, 200, 0) )
+local kCarrySize = GUIScale( Vector(100, 100, 0) )
 
 local kPadding = GUIScale(32)
 local kEggTopOffset = GUIScale(8)
@@ -281,6 +281,27 @@ function GUIFlagScore:Update(deltaTime)
         
         self.carryGorgeIcon:SetIsVisible(AlienUI_GetIsCarrier(teamNumber))
         self.carryGorgeIcon:SetColor(enemyTeamColor)    
+
+        -- ----------------
+        -- local enemy = players[i]
+        -- local icon = self.icons[i]
+
+        -- local healthScalar = enemy:GetHealthScalar()        
+        -- local color = Color(1, healthScalar, 0, 1)
+
+        -- local offset = enemy:isa("Exo") and kExoHeartOffset or kHeartOffset
+
+        -- local worldPos = enemy:GetOrigin() + offset
+        -- local screenPos = Client.WorldToScreen(worldPos)
+        -- local distanceFraction = 1 - Clamp((worldPos - eyePos):GetLength() / 20, 0, 0.8)
+
+        -- local size = GUIScale(Vector(kIconSize.x, kIconSize.y, 0)) * distanceFraction
+
+        -- icon:SetPosition(screenPos - size * 0.5)
+        -- icon:SetSize(size)
+        -- icon:SetColor(color)
+
+        -- ----------------
         
         local points = AlienUI_GetPoints( teamNumber )
 
@@ -335,6 +356,7 @@ function GUIFlagScore:Update(deltaTime)
             self.enemyTeamCarrier:SetText(enemyCarrier) 
             self.enemyTeamCarrier:SetColor(enemyTeamColor)
         end
+
     end
     
 end

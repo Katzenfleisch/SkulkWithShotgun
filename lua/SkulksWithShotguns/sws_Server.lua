@@ -62,6 +62,10 @@ function GetLoadSpecial(mapName, groupName, values)
     else
         return OriginalLoadSpecial(mapName, groupName, values)
     end
+
+    if kTeamModeEnabled then
+        kLerkGestateTime = 1
+    end
     
     return success
     
