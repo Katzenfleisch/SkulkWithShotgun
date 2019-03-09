@@ -49,6 +49,9 @@ Script.Load("lua/SkulksWithShotguns/sws_Respawn.lua")
 Script.Load("lua/SkulksWithShotguns/sws_Flags.lua")
 Script.Load("lua/SkulksWithShotguns/sws_AlienTeamInfo.lua")
 
+// Stuff imported from an other mod for conveniance
+Script.Load("lua/SkulksWithShotguns/sntl_Utils.lua")
+
 // Client Specific Stuff
 // loading it here, so we don't get strange precedence issues.
 if Client then

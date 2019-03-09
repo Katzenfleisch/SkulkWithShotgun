@@ -5,7 +5,7 @@
 ## \<jeanbaptiste.laurent.pro@gmail.com\>
 ## 
 ## \date Started on  Sat Apr  4 15:42:49 2015 Jean-Baptiste Laurent
-## \date Last update Thu Mar  7 20:27:43 2019 Jean-Baptiste Laurent
+## \date Last update Sat Mar  9 12:27:42 2019 Jean-Baptiste Laurent
 ## \brief File description to place here
 ##
 
@@ -18,12 +18,12 @@ then
     # mkdir -p $base_dir${mod_name}_production/output/
     # echo "Remove done"
     ##
-    rsync --delete --progress -vcr ./* $base_dir/${mod_name}_production/output/
+    rsync --exclude=".git" --exclude="maps" --delete-excluded --delete --progress -vcr ./* $base_dir/${mod_name}_production/output/ 
 
     cp .modinfo $base_dir/${mod_name}_production/output/
 fi
 
-rsync --delete --progress -vcr ../${mod_name}/ $base_dir/${mod_name}/
+rsync --exclude=".git" --exclude="maps" --delete-excluded --delete --progress -vcr ../${mod_name}/ $base_dir/${mod_name}/
 echo "Copy done"
 
 # if [ $# -eq 1 ]

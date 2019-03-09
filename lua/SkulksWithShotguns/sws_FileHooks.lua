@@ -8,6 +8,8 @@ local function ModLoader_SetupFileHook(file, replace_type)
     ModLoader.SetupFileHook(file,  sws_file, replace_type)
 end
 
+ModLoader_SetupFileHook("lua/Balance.lua", "post")
+
 ModLoader_SetupFileHook("lua/Skulk.lua", "replace")
 ModLoader_SetupFileHook("lua/SkulkVariantMixin.lua", "replace")
 ModLoader_SetupFileHook("lua/Lerk.lua", "post")

@@ -1,5 +1,9 @@
 
-// we don't allow any entities to be used.
+// we don t allow any entities to be used.
 function TeamMixin:GetCanBeUsed(player, useSuccessTable)
-      useSuccessTable.useSuccess = false
+    if self:GetTechId() == kTechId.LerkEgg then
+        useSuccessTable.useSuccess = true
+    else
+        useSuccessTable.useSuccess = false
+    end
 end

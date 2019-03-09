@@ -294,4 +294,66 @@ end
     // replace egg spawning and counting logic.            
     //ReplaceLocals( AlienTeam.Update, { UpdateEggGeneration = ExtendedAlienTeamUpdateMethod, UpdateEggCount = CustomUpdateEggCount } )
 
+    local function AlienTeam_LerkEggSpawn(self, timePassed)
+        local players = GetEntitiesForTeam("Player", self:GetTeamNumber())
+        local embryos = GetEntitiesForTeam("Embryo", self:GetTeamNumber())
+        local lerkEggs = GetEntitiesForTeam("Egg", self:GetTeamNumber())
+        local lerkPlayers = GetEntitiesForTeam("Lerk", self:GetTeamNumber())
+
+        -- Log("lerk eggs for team %s : %s", tostring(self:GetTeamNumber()), tostring(#lerkEggs + #embryos))
+        if #lerkEggs == 0 and #embryos == 0 and #players > 0 and #lerkPlayers == 0 then
+            local spawnPoints = self:GetSpawnLocations()
+            local numSpawnPoints = table.maxn(spawnPoints)
+
+            if numSpawnPoints > 0 then
+                
+                -- local checkedSpawnPoints = SNTL_SpreadedPlacementFromOrigin(GetExtents(kTechId.LerkEgg), spawnPoints[1]:GetOrigin(), 10, 1, 6)
+
+                local randSpawnPoint = math.random(1,  #spawnPoints)
+                local checkedSpawnPoints = {spawnPoints[randSpawnPoint]:GetOrigin() + Vector(0, 0.1, 0)}
+
+
+                -- Log("No lerk egges, checked spawn points: %s", tostring(#checkedSpawnPoints))
+                if #checkedSpawnPoints > 0 then
+                    local i = math.random(1, #checkedSpawnPoints)
+                    local a = CreateEntity(Egg.kMapName, checkedSpawnPoints[i], self:GetTeamNumber())
+
+                    local randomPlayerForTheId = players[1]
+                    local techNode = self:GetTechTree():GetTechNode(kTechId.LerkEgg)
+                    a:SetResearching(techNode, randomPlayerForTheId)
+                    -- Log("Lerk egg spawn and researching for team %s", tostring(self:GetTeamNumber()))
+                    -- a:SetConstructionComplete()
+                end
+
+                -- local spawnPoint = GetRandomClearSpawnPoint(player, spawnPoints)
+                -- if spawnPoint ~= nil then
+                --     local origin = spawnPoint:GetOrigin()
+                --     local angles = spawnPoint:GetAngles()
+
+                
+                -- end
+            end
+        end
+    end
+
+    local old_AlienTeam_Update = AlienTeam.Update
+    function AlienTeam:Update(timePassed)
+        local rval = old_AlienTeam_Update and old_AlienTeam_Update(self, timePassed)
+
+        if not GetGamerules():GetGameStarted() or SNTL_LimitCallFrequency("LerkEggSpawn_team" .. tostring(self:GetTeamNumber()) , 1) then
+            return rval
+        end
+
+        AlienTeam_LerkEggSpawn(self, timePassed)
+        -- if GetGamerules():GetGameStarted() then
+        --     self:UpdateNoMoreEggs()
+        --     self:UpdateFillerBots()
+        --     self:UpdateHiddenEggSpawn()
+        -- else
+        --     GetGamerules():SetMaxBots(0, false)
+        -- end
+        return rval
+    end
+
+
 end
