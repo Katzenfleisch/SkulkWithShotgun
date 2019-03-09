@@ -195,7 +195,7 @@ end
             // count the number of stalk spots available..            local count = 0
             local count = Shared.GetEntitiesWithClassname("ResourcePoint"):GetSize() 
             
-            // don't spawn buildings for Shadow skulks in deathmatch mode.
+            // don t spawn buildings for Shadow skulks in deathmatch mode.
             if kTeamModeEnabled or (self:GetTeamNumber() == kVanillaTeamIndex) then
                 
                 // place stalks in a random order.
@@ -236,7 +236,7 @@ end
                 return false
             end
             
-            // manual replace respawn! We don't want the whole egg business. also fix it so we spawn shotgun skulks.
+            // manual replace respawn! We don t want the whole egg business. also fix it so we spawn shotgun skulks.
             local success, player = team:ReplaceRespawnPlayer(player, nil, nil)
             if player ~= nil then
                 player:SetCameraDistance(0)
@@ -257,7 +257,7 @@ end
     end
     
 
-    // we don't want egg generation. Instead, we ensure our flag is still here.
+    // we don t want egg generation. Instead, we ensure our flag is still here.
     local function ExtendedAlienTeamUpdateMethod(self) 
     
         // restore missing flag.
