@@ -37,9 +37,9 @@ end
 function SkulkVariantMixin:GetVariantModel()
 
     if self:GetTeamNumber() == kShadowTeamIndex then
-        return SkulkVariantMixin.kModelNames[kSkulkVariant.anniv]
+        return SkulkVariantMixin.kModelNames[kSkulkVariant.shadow]
     else
-        return SkulkVariantMixin.kModelNames[kSkulkVariant.reaper]
+        return SkulkVariantMixin.kModelNames[kSkulkVariant.normal]
     end
 end
 

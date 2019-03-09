@@ -40,8 +40,10 @@ Skulk.kMapName = "skulk"
 
 Skulk.kModelName = PrecacheAsset("models/alien/skulk/skulk.model")
 -- SWS START
-local kViewModelName     = PrecacheAsset("models/alien/skulk/skulk_view.model")
-local kBlueViewModelName = PrecacheAsset("models/alien/skulk/skulk_view.model")
+local kViewModelName = PrecacheAsset("models/alien/skulk/skulk_vred.model")
+local kBlueViewModelName = PrecacheAsset("models/alien/skulk/skulk_vblu.model")
+-- local kViewModelName     = PrecacheAsset("models/alien/skulk/skulk_view.model")
+-- local kBlueViewModelName = PrecacheAsset("models/alien/skulk/skulk_view.model")
 -- SWS END
 local kSkulkAnimationGraph = PrecacheAsset("models/alien/skulk/skulk.animation_graph")
 
@@ -675,16 +677,6 @@ end
 local kSkulkEngageOffset = Vector(0, 0.5, 0)
 function Skulk:GetEngagementPointOverride()
     return self:GetOrigin() + kSkulkEngageOffset
-end
-
--- if Client then
--- function Skulk:GetIsParasited()
---     return GetIsAlienUnit(self)
--- end
--- end
-
-function Skulk:GetIsParasited()
-    return self:GetIsAlive()
 end
 
 Shared.LinkClassToMap("Skulk", Skulk.kMapName, networkVars, true)
