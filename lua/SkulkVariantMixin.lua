@@ -5,6 +5,7 @@
 // ==============================================================================================
 
 Script.Load("lua/Globals.lua")
+Script.Load("lua/SkulksWithShotguns/sws_Globals.lua")
 
 SkulkVariantMixin = CreateMixin(SkulkVariantMixin)
 SkulkVariantMixin.type = "SkulkVariant"
@@ -35,7 +36,7 @@ end
 
 function SkulkVariantMixin:GetVariantModel()
 
-    if self:GetTeamNumber() == 1 then
+    if self:GetTeamNumber() == kShadowTeamIndex then
         return SkulkVariantMixin.kModelNames[kSkulkVariant.shadow]
     else
         return SkulkVariantMixin.kModelNames[kSkulkVariant.toxin]

@@ -11,6 +11,7 @@ end
 ModLoader_SetupFileHook("lua/Skulk.lua", "replace")
 ModLoader_SetupFileHook("lua/SkulkVariantMixin.lua", "replace")
 ModLoader_SetupFileHook("lua/Lerk.lua", "post")
+ModLoader_SetupFileHook("lua/LerkVariantMixin.lua", "post")
 
 ModLoader_SetupFileHook("lua/Weapons/Marine/Shotgun.lua", "replace")
 
