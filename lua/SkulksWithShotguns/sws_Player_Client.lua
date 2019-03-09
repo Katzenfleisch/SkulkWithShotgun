@@ -7,6 +7,18 @@ function PlayerUI_GetCanEarnResources()
 end
 
 
+local function DisableScreenEffects(self)
+
+    if self:GetIsLocalPlayer() then
+
+        for _, effect in pairs(Player.screenEffects) do
+            effect:SetActive(false)
+        end
+
+    end
+
+end
+
 --[[
 -- Called on the Client only, after OnInitialized(), for a ScriptActor that is controlled by the local player.
 -- Ie, the local player is controlling this Marine and wants to intialize local UI, flash, etc.
