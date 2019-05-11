@@ -8,6 +8,13 @@ local function ModLoader_SetupFileHook(file, replace_type)
     ModLoader.SetupFileHook(file,  sws_file, replace_type)
 end
 
+local function ModLoader_SetupModelFileHook(file, replace_type)
+    local sws_file = string.gsub(file, "models/", "sws_models/", 1)
+
+    Log("[SwS] ModLoader.SetupModelFileHook(\"%s\",  \"%s\", \"%s\")", file,  sws_file, replace_type)
+    ModLoader.SetupFileHook(file,  sws_file, replace_type)
+end
+
 ModLoader_SetupFileHook("lua/Balance.lua", "post")
 ModLoader_SetupFileHook("lua/BalanceMisc.lua", "post")
 
@@ -19,7 +26,25 @@ ModLoader_SetupFileHook("lua/LerkVariantMixin.lua", "post")
 -- ModLoader_SetupFileHook("lua/HiveVisionMixin.lua", "replace")
 
 ModLoader_SetupFileHook("lua/Weapons/Marine/Shotgun.lua", "replace")
-ModLoader_SetupFileHook("lua/Weapons/Alien/SpikesMixin.lua", "replace")
+-- ModLoader_SetupFileHook("lua/Weapons/Alien/SpikesMixin.lua", "replace")
+
+
+-- ModLoader_SetupModelFileHook("models/alien/gorge/gorge.dds", "replace")
+-- ModLoader_SetupModelFileHook("models/alien/gorge/gorge_shadow.dds", "replace")
+-- ModLoader_SetupModelFileHook("models/alien/gorge/gorge_shadow_illum.dds", "replace")
+-- ModLoader_SetupModelFileHook("models/alien/skulk/skulk.dds", "replace")
+-- ModLoader_SetupModelFileHook("models/alien/skulk/skulk_illum.dds", "replace")
+-- ModLoader_SetupModelFileHook("models/alien/skulk/skulk_v2.dds", "replace")
+-- ModLoader_SetupModelFileHook("models/alien/skulk/skulk_v2_illum.dds", "replace")
+-- ModLoader_SetupModelFileHook("models/alien/skulk/skulk_vblu.material", "replace")
+-- ModLoader_SetupModelFileHook("models/alien/skulk/skulk_vblu.model", "replace")
+-- ModLoader_SetupModelFileHook("models/alien/skulk/skulk_view_blue.dds", "replace")
+-- ModLoader_SetupModelFileHook("models/alien/skulk/skulk_view_red.dds", "replace")
+-- ModLoader_SetupModelFileHook("models/alien/skulk/skulk_vred.material", "replace")
+-- ModLoader_SetupModelFileHook("models/alien/skulk/skulk_vred.model", "replace")
+-- ModLoader_SetupModelFileHook("models/marine/shotgun/shotgun.material", "replace")
+-- ModLoader_SetupModelFileHook("models/marine/shotgun/shotgun.model", "replace")
+
 
 -- ModLoader_SetupFileHook("lua/Globals.lua", "post")
 -- ModLoader_SetupFileHook("lua/NS2Gamerules.lua", "post")

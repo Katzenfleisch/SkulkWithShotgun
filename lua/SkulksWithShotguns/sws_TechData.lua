@@ -248,8 +248,6 @@ function BuildTechData()
         { [kTechDataId] = kTechId.DoorUnlock,            [kTechDataDisplayName] = "UNLOCK_DOOR", [kTechDataHotkey] = Move.U, [kTechDataTooltipInfo] = "UNLOCK_DOOR_TOOLTIP"},
         
         -- Marine Commander abilities
-        { [kTechDataId] = kTechId.NanoShieldTech,  [kTechDataDisplayName] = "NANO_SHIELD_TECH", [kTechDataTooltipInfo] = "NANO_SHIELD_DEFENSE_TOOLTIP", [kTechDataCostKey] = kNanoShieldResearchCost, [kTechDataResearchTimeKey] = kNanoSnieldResearchTime },
- 
         { [kTechDataId] = kTechId.PowerSurge,    [kTechDataCooldown] = kPowerSurgeCooldown,      [kTechDataAllowStacking] = true, [kTechDataIgnorePathingMesh] = true,  [kTechDataDisplayName] = "POWER_SURGE", [kTechDataCostKey] = kPowerSurgeCost, [kTechDataTooltipInfo] = "POWER_SURGE_TOOLTIP"},        
         { [kTechDataId] = kTechId.NanoShield,    [kTechDataCooldown] = kNanoShieldCooldown,      [kTechDataAllowStacking] = true, [kTechDataIgnorePathingMesh] = true, [kTechDataMapName] = NanoShield.kMapName,   [kTechDataDisplayName] = "NANO_SHIELD_DEFENSE", [kTechDataCostKey] = kNanoShieldCost, [kTechDataTooltipInfo] = "NANO_SHIELD_DEFENSE_TOOLTIP"},        
         { [kTechDataId] = kTechId.AmmoPack,              [kTechDataAllowStacking] = true, [kTechDataIgnorePathingMesh] = true, [kTechDataMapName] = AmmoPack.kMapName,  [kTechDataDisplayName] = "AMMO_PACK",      [kTechDataCostKey] = kAmmoPackCost,            [kTechDataModel] = AmmoPack.kModelName, [kTechDataTooltipInfo] = "AMMO_PACK_TOOLTIP", [kTechDataSpawnHeightOffset] = kCommanderDropSpawnHeight, [kTechDataOverrideCoordsMethod] = AlignDroppack },
@@ -262,8 +260,6 @@ function BuildTechData()
 
         { [kTechDataId] = kTechId.Recycle,               [kTechDataDisplayName] = "RECYCLE", [kTechDataCostKey] = 0,    [kTechIDShowEnables] = false,       [kTechDataResearchTimeKey] = kRecycleTime, [kTechDataHotkey] = Move.R, [kTechDataTooltipInfo] =  "RECYCLE_TOOLTIP"},
         { [kTechDataId] = kTechId.MAC,    [kTechDataSupply] = kMACSupply,    [kTechDataHint] = "MAC_HINT",           [kTechDataMapName] = MAC.kMapName,                      [kTechDataDisplayName] = "MAC",  [kTechDataMaxHealth] = MAC.kHealth, [kTechDataMaxArmor] = MAC.kArmor, [kTechDataCostKey] = kMACCost, [kTechDataResearchTimeKey] = kMACBuildTime, [kTechDataModel] = MAC.kModelName, [kTechDataDamageType] = kMACAttackDamageType, [kTechDataInitialEnergy] = kMACInitialEnergy, [kTechDataMaxEnergy] = kMACMaxEnergy, [kTechDataMenuPriority] = 2, [kTechDataPointValue] = kMACPointValue, [kTechDataHotkey] = Move.M, [kTechDataTooltipInfo] = "MAC_TOOLTIP"},
-        { [kTechDataId] = kTechId.CatPackTech,           [kTechDataCostKey] = kCatPackTechResearchCost,          [kTechDataResearchTimeKey] = kCatPackTechResearchTime, [kTechDataDisplayName] = "CAT_PACKS", [kTechDataTooltipInfo] = "CAT_PACK_TECH_TOOLTIP"},
-        { [kTechDataId] = kTechId.PowerSurgeTech,           [kTechDataCostKey] = kPowerSurgeResearchCost,          [kTechDataResearchTimeKey] = kPowerSurgeResearchTime, [kTechDataDisplayName] = "POWER_SURGE", [kTechDataTooltipInfo] = "POWER_SURGE_TOOLTIP"},
 
         -- Marine base structures
         {

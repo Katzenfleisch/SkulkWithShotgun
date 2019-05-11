@@ -151,6 +151,15 @@ function Babbler:OnInitialized()
     
 end
 
+function Babbler:DestroyHitbox()
+    if self.hitBox then
+
+        Shared.DestroyCollisionObject(self.hitBox)
+        self.hitBox = nil
+
+    end
+end
+
 function Babbler:OnDestroy()
 
     ScriptActor.OnDestroy(self)

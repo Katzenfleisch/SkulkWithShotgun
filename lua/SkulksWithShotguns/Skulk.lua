@@ -222,6 +222,15 @@ function Skulk:OnDestroy()
 
 end
 
+
+function Skulk:Drop(weapon, ignoreDropTimeLimit, ignoreReplacementWeapon)
+    if (Server) then
+        self:RemoveWeapon(weapon)
+        return true
+    end
+    return false
+end
+
 function Skulk:GetBaseArmor()
     return Skulk.kArmor
 end
@@ -677,6 +686,11 @@ end
 local kSkulkEngageOffset = Vector(0, 0.5, 0)
 function Skulk:GetEngagementPointOverride()
     return self:GetOrigin() + kSkulkEngageOffset
+end
+
+function Skulk:GetIsParasited()
+    self.parasited = self:GetIsAlive() and self:IsBearingFlag()
+    return self.parasited
 end
 
 Shared.LinkClassToMap("Skulk", Skulk.kMapName, networkVars, true)

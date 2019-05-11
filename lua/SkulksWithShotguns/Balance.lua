@@ -11,3 +11,5 @@ kBitePoisonDamage = 6 -- per second
 kPoisonBiteDuration = 6
 kLerkBiteEnergyCost = 3.5
 kLerkBiteDamageType = kDamageType.Normal
+
+kLerkGestateTime = 2

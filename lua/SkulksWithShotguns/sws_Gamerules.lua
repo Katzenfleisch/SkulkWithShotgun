@@ -161,6 +161,11 @@ if Server then
 	
     function NS2Gamerules:JoinTeam(player, newTeamNumber, force)
         
+
+        if not kTeamModeEnabled then
+            newTeamNumber = kTeam2Index
+        end
+
         local client = Server.GetOwner(player)
         if not client then return end
         

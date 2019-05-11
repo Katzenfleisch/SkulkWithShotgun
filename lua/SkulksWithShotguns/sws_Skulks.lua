@@ -6,6 +6,9 @@ function Skulk:InitWeapons()
 
     Alien.InitWeapons(self)
     
+    -- self:GiveItem(BiteLeap.kMapName)
+    -- self:GiveItem(Parasite.kMapName)
+
     self:GiveItem(Shotgun.kMapName)
     self:SetActiveWeapon(Shotgun.kMapName)
     
@@ -78,6 +81,13 @@ function ShotgunSkulk:OnInitialized()
     
 end
 
+function ShotgunSkulk:Drop(weapon, ignoreDropTimeLimit, ignoreReplacementWeapon)
+    if (Server) then
+        self:RemoveWeapon(weapon)
+        return true
+    end
+    return false
+end
 
 function ShotgunSkulk:GetMaxSpeed(possible)
 
@@ -95,6 +105,9 @@ end
 function ShotgunSkulk:InitWeapons()
 
     Alien.InitWeapons(self)
+    
+    -- self:GiveItem(BiteLeap.kMapName)
+    -- self:GiveItem(Parasite.kMapName)
     
     self:GiveItem(Shotgun.kMapName)
     self:SetActiveWeapon(Shotgun.kMapName)

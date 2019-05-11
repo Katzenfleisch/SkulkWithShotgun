@@ -12,7 +12,7 @@ local kAnimationGraph = PrecacheAsset("models/alien/skulk/skulk_view.animation_g
 Shotgun.kActivity = enum { 'None', 'Primary' }
 
 
-kShotgunHUDSlot = 2
+kShotgunHUDSlot = 3
 
 local kBulletSize = 0.016
 local kShotgunSize = 0.15 // size of parasite blob

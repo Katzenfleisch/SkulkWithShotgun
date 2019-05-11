@@ -39,7 +39,7 @@ kTeamModeTimelimit = (10 * 60)
 // Tweak egg spawns.
 kAlienEggsPerHive = 5
 kAlienSpawnTime = 2
-kTeamAlienSpawnTime =  5
+kTeamAlienSpawnTime =  6
 kEggGenerationRate = 1
 
 function ConcatEnum(e1, e2)
