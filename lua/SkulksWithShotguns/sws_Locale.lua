@@ -1,9 +1,11 @@
+-- TEAM_RES = 'REMAINING SPAWNS: %d', -- FFA is broken atm
+
 kCustomLocaleMessages = {
     // @TODO cleanup unused.
     HIVE = 'Stalk',
     HIVE_TOOLTIP = 'Produces eggs for your team.',
     HIVE_HINT = 'Produces eggs for your team.',
-    TEAM_RES = ''--'REMAINING SPAWNS: %d', -- FFA is broken atm
+    TEAM_RES = '',
     TEAM_GAME_STARTED = 'Objective: Capture the enemy gorge',
     DEATHMATCH_GAME_STARTED = 'Objective: Kill all opposition',
     RESOURCE_NOZZLE = 'Dead Stalk',

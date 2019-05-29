@@ -20,6 +20,7 @@ if Server then
 	
 	function Gamerules:RespawnPlayer(player)
 
+
 		-- Randomly choose unobstructed spawn points to respawn the player
 		local success = false
 		local spawnPoint
@@ -41,7 +42,7 @@ if Server then
 				success = true
 				
 			end
-			
+
 		end
 		
 		if(not success) then
@@ -148,10 +149,6 @@ if Server then
                     Shared:ShotgunMessage("Lock and load!")
                     
                     // @todo find a good location for this.
-                    if kTeamModeEnabled then
-                        // team mode requires longer spawn time.
-                        kAlienSpawnTime = kTeamAlienSpawnTime
-                    end
                 end
             end
             
@@ -159,8 +156,32 @@ if Server then
         
     end
 	
+    local function UpdateSpawnTime(self)
+        --------------
+        local playerCount = self.team1:GetNumPlayers() + self.team2:GetNumPlayers()
+
+        local new_kAlienSpawnTime = kTeamAlienSpawnTime -- FFA
+
+        Log("-- %d / %d", playerCount, new_kAlienSpawnTime)
+        if kTeamModeEnabled then
+            // team mode requires longer spawn time.
+            new_kAlienSpawnTime = (playerCount < (5+5)) and kFastTeamAlienSpawnTime or kTeamAlienSpawnTime
+           if new_kAlienSpawnTime ~= kAlienSpawnTime then
+                if new_kAlienSpawnTime == kTeamAlienSpawnTime then
+                    Log("Balance: updating the spawn time from %ds to %ds (5v5 reached)", kAlienSpawnTime, new_kAlienSpawnTime)
+                else
+                    Log("Balance: Updating the spawn time from %ds to %ds (1v1 - 4v4)", kAlienSpawnTime, new_kAlienSpawnTime)
+                end
+                kAlienSpawnTime = new_kAlienSpawnTime
+            end
+        end
+
+        --------------
+    end
+
     function NS2Gamerules:JoinTeam(player, newTeamNumber, force)
         
+
 
         if not kTeamModeEnabled then
             newTeamNumber = kTeam2Index
@@ -275,11 +296,13 @@ if Server then
                 self.botTeamController:UpdateBots()
             end
 
+            UpdateSpawnTime(self)
             return success, newPlayer
             
         end
         
         -- Return old player
+        UpdateSpawnTime(self)
         return success, player
         
 	end
@@ -352,7 +375,7 @@ if Server then
         for index, playerId in ipairs(self.playerIds) do
             local player = Shared.GetEntity(playerId)
             if player ~= nil and player:GetId() ~= Entity.invalidId and player:GetIsAlive() == true then
-                name = player.Name:GetText()
+                name = player:GetName()
             end 
         end
     
