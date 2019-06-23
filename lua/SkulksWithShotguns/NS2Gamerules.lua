@@ -18,40 +18,6 @@ if Server then
 	function NS2Gamerules:SetMaxBots()
 	end
 	
-	function Gamerules:RespawnPlayer(player)
-
-
-		-- Randomly choose unobstructed spawn points to respawn the player
-		local success = false
-		local spawnPoint
-		local spawnPoints = Server.readyRoomSpawnList
-		local numSpawnPoints = table.icount(spawnPoints)
-
-		if(numSpawnPoints > 0) then
-		
-			local spawnPoint = GetRandomClearSpawnPoint(player, spawnPoints)
-			if (spawnPoint ~= nil) then
-			
-				local origin = spawnPoint:GetOrigin()
-				local angles = spawnPoint:GetAngles()
-				
-				SpawnPlayerAtPoint(player, origin, angles)
-				
-				player:ClearEffects()
-				
-				success = true
-				
-			end
-
-		end
-		
-		if(not success) then
-			Print("Gamerules:RespawnPlayer(player) - Couldn t find spawn point for player.")
-		end
-		
-		return success
-		
-	end
 	
     function NS2Gamerules:BuildTeam(teamType)
         // TEAM MODE - we always want aliens, because only aliens are shotgun worthy!
@@ -89,8 +55,11 @@ if Server then
             self.timeSinceGameStateChanged = 0
             
             local frozenState = (state == kGameState.Countdown) and (not Shared.GetDevMode())
-            self.team1:SetFrozenState(frozenState)
-            self.team2:SetFrozenState(frozenState)
+            
+            if self.team1.SetFrozenState and self.team2.SetFrozenState then
+                self.team1:SetFrozenState(frozenState)
+                self.team2:SetFrozenState(frozenState)
+            end
             
             if self.gameState == kGameState.Started then
             
@@ -126,6 +95,7 @@ if Server then
         end
         
     end    
+
     function NS2Gamerules:CheckGameStart()
     
         local playerCount = self.team1:GetNumPlayers() + self.team2:GetNumPlayers()
@@ -563,8 +533,8 @@ if Server then
     local function DisabledCheckForNoCommander(self, onTeam, commanderType) end
     local function DisabledKillEnemiesNearCommandStructureInPreGame(self, timePassed) end
     
-    ReplaceLocals( NS2Gamerules.OnUpdate, { UpdateAutoTeamBalance = DisabledUpdateAutoTeamBalance } )
-    ReplaceLocals( NS2Gamerules.OnUpdate, { CheckForNoCommander = DisabledCheckForNoCommander } )
-    ReplaceLocals( NS2Gamerules.OnUpdate, { KillEnemiesNearCommandStructureInPreGame = DisabledKillEnemiesNearCommandStructureInPreGame } )
+    -- ReplaceLocals( NS2Gamerules.OnUpdate, { UpdateAutoTeamBalance = DisabledUpdateAutoTeamBalance } )
+    -- ReplaceLocals( NS2Gamerules.OnUpdate, { CheckForNoCommander = DisabledCheckForNoCommander } )
+    -- ReplaceLocals( NS2Gamerules.OnUpdate, { KillEnemiesNearCommandStructureInPreGame = DisabledKillEnemiesNearCommandStructureInPreGame } )
 
 end

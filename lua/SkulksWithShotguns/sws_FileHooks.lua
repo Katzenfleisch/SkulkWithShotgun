@@ -29,6 +29,9 @@ ModLoader_SetupFileHook("lua/Weapons/Marine/Shotgun.lua", "replace")
 -- ModLoader_SetupFileHook("lua/Weapons/Alien/SpikesMixin.lua", "replace")
 
 
+ModLoader_SetupFileHook("lua/NS2Gamerules.lua", "post")
+ModLoader_SetupFileHook("lua/Gamerules.lua", "post")
+
 -- ModLoader_SetupModelFileHook("models/alien/gorge/gorge.dds", "replace")
 -- ModLoader_SetupModelFileHook("models/alien/gorge/gorge_shadow.dds", "replace")
 -- ModLoader_SetupModelFileHook("models/alien/gorge/gorge_shadow_illum.dds", "replace")

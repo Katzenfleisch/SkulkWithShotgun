@@ -12,6 +12,7 @@ Script.Load("lua/OwnerMixin.lua")
 Script.Load("lua/TargetCacheMixin.lua")
 Script.Load("lua/PathingMixin.lua")
 Script.Load("lua/PhysicsGroups.lua")
+Script.Load("lua/CloakableMixin.lua")
 
 kBabblerMoveType = enum({ 'None', 'Move', 'Cling', 'Attack', 'Wag' })
 
@@ -63,6 +64,7 @@ AddMixinNetworkVars(BaseModelMixin, networkVars)
 AddMixinNetworkVars(ClientModelMixin, networkVars)
 AddMixinNetworkVars(LiveMixin, networkVars)
 AddMixinNetworkVars(TeamMixin, networkVars)
+AddMixinNetworkVars(CloakableMixin, networkVars)
 
 // shared:
 
@@ -92,6 +94,7 @@ function Babbler:OnCreate()
     InitMixin(self, TeamMixin)
     InitMixin(self, DamageMixin)
     InitMixin(self, EntityChangeMixin)
+    InitMixin(self, CloakableMixin)
     
     if Server then
     
