@@ -5,12 +5,12 @@
 ## \<jeanbaptiste.laurent.pro@gmail.com\>
 ## 
 ## \date Started on  Sat Apr  4 15:42:49 2015 Jean-Baptiste Laurent
-## \date Last update Sat Mar  9 12:27:42 2019 Jean-Baptiste Laurent
+## \date Last update Mon Apr 20 16:54:30 2020 Jean-Baptiste Laurent
 ## \brief File description to place here
 ##
 
 mod_name="SkulkWithShotgun"
-base_dir="/media/NS2"
+base_dir="/media/NS2/DIR_SkulkWithShotgun/"
 if [ $# -eq 1 ]
 then
     # rm -vrf $base_dir${mod_name}/*
