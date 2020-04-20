@@ -36,6 +36,8 @@ end
 
 function GUIAuraDisplay:Initialize()
 
+    self.updateInterval = 0
+
     self.background = GetGUIManager():CreateGraphicItem()
     self.background:SetColor(Color(0,0,0,0))
     
