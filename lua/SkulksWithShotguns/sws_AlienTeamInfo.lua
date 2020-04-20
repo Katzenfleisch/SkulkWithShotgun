@@ -38,6 +38,8 @@ function ShotgunAlienTeamInfo:OnCreate()
     self.carrierId = nil
     self.enemyCarrierId = nil
 
+    self.numInfantryPortals = 0
+
 end
 
 function ShotgunAlienTeamInfo:Reset()
@@ -49,6 +51,8 @@ function ShotgunAlienTeamInfo:Reset()
         self.carrierId = nil
         self.enemyCarrierId = nil
         self.teamMode = kTeamModeEnabled
+
+        self.numInfantryPortals = 0
         
 end
 
