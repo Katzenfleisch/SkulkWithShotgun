@@ -336,24 +336,24 @@ end
         end
     end
 
-    local old_AlienTeam_Update = AlienTeam.Update
-    function AlienTeam:Update(timePassed)
-        local rval = old_AlienTeam_Update and old_AlienTeam_Update(self, timePassed)
+    -- local old_AlienTeam_Update = AlienTeam.Update
+    -- function AlienTeam:Update(timePassed)
+    --     local rval = old_AlienTeam_Update and old_AlienTeam_Update(self, timePassed)
 
-        if not GetGamerules():GetGameStarted() or SNTL_LimitCallFrequency("LerkEggSpawn_team" .. tostring(self:GetTeamNumber()) , 1) then
-            return rval
-        end
+    --     if not GetGamerules():GetGameStarted() or SNTL_LimitCallFrequency("LerkEggSpawn_team" .. tostring(self:GetTeamNumber()) , 1) then
+    --         return rval
+    --     end
 
-        AlienTeam_LerkEggSpawn(self, timePassed)
-        -- if GetGamerules():GetGameStarted() then
-        --     self:UpdateNoMoreEggs()
-        --     self:UpdateFillerBots()
-        --     self:UpdateHiddenEggSpawn()
-        -- else
-        --     GetGamerules():SetMaxBots(0, false)
-        -- end
-        return rval
-    end
+    --     AlienTeam_LerkEggSpawn(self, timePassed)
+    --     -- if GetGamerules():GetGameStarted() then
+    --     --     self:UpdateNoMoreEggs()
+    --     --     self:UpdateFillerBots()
+    --     --     self:UpdateHiddenEggSpawn()
+    --     -- else
+    --     --     GetGamerules():SetMaxBots(0, false)
+    --     -- end
+    --     return rval
+    -- end
 
 
 end
